@@ -1,44 +1,65 @@
-﻿<!--Agrego lo que devuelve el metodo Index 
+﻿<!--Agrego lo que devuelve el metodo Index
     (una coleccion de objetos Opera)-->
 @model IEnumerable<OperaWebSite.Models.Opera>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>@Html.ActionLink("Create New", "Create", "Opera")</p>
-    
+<p>@Html.ActionLink("Create New", "Create", "Opera")</p>
 
-    <table>
-        <tr>
-            <th>@Html.DisplayNameFor(model=> model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Composer)</th>
-            <th>@Html.DisplayNameFor(model => model.Year)</th>
-            <th>Detail</th>
-            <th>Delete</th>
-            <th>Edit</th>
-        </tr>
-        @foreach (var item in Model)
-        {
+
+<table>
     <tr>
-        <td>@Html.DisplayFor(modelItem => item.Title)</td>
-        <td>@Html.DisplayFor(modelItem => item.Composer)</td>
-        <td>@Html.DisplayFor(modelItem => item.Year)</td>
-        <td>
-            @Html.ActionLink("Detail", "Detail", new { id = item.OperaId })
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.OperaId })
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.OperaId })
-        </td>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Composer)</th>
+        <th>@Html.DisplayNameFor(model => model.Year)</th>
+        <th>Detail</th>
+        <th>Delete</th>
+        <th>Edit</th>
     </tr>
-        }
-    </table>
-</body>
-</html>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Composer)</td>
+            <td>@Html.DisplayFor(modelItem => item.Year)</td>
+            <td>
+                @Html.ActionLink("Detail", "Detail", new { id = item.OperaId })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.OperaId })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OperaId })
+            </td>
+        </tr>
+    }
+</table>
+
+@section izq{
+    <h3>Operas de Mozart</h3>
+    <ul>
+        <li>
+            <a href="https://www.google.com/search?rlz=1C1ALOY_esAR932AR932&sxsrf=AOaemvJdtFTbxv5vJOl3Umy5H_x3dh6MJg:1636506756173&q=Wolfgang+Amadeus+Mozart+La+flauta+m%C3%A1gica&stick=H4sIAAAAAAAAAONgFuLQz9U3sDBKSVICsyzTzdO15DPKrfST83NyUpNLMvPzgMzcgvzi1KJiq_yC1KLE4keMPtwCL3_cE5ZynrTm5DVGWy5COoTEuNhc80oySyqFeKS4uOCWWjFpMPEsYtUMz89JS0_MS1dwzE1MSS0tVvDNr0osKlHwSVRIy0ksLUlUyD28MD0zOXECGyMAJqDedrUAAAA&sa=X&sqi=2&ved=2ahUKEwidzv7ezoz0AhUVR_EDHaTGDtwQ-BZ6BAgBEDk">La flauta magica</a>
+        </li>
+        <li>
+            <a href="https://www.google.com/search?rlz=1C1ALOY_esAR932AR932&sxsrf=AOaemvJdtFTbxv5vJOl3Umy5H_x3dh6MJg:1636506756173&q=Wolfgang+Amadeus+Mozart+Don+Giovanni&stick=H4sIAAAAAAAAAONgFuLQz9U3sDBKSVICsywzMgy05DPKrfST83NyUpNLMvPzgMzcgvzi1KJiq_yC1KLE4keMPtwCL3_cE5ZynrTm5DVGWy5COoTEuNhc80oySyqFeKS4uOCWWjFpMPEsYlUJz89JS0_MS1dwzE1MSS0tVvDNr0osKlFwyc9TcM_ML0vMy8ucwMYIANj_IA6wAAAA&sa=X&sqi=2&ved=2ahUKEwidzv7ezoz0AhUVR_EDHaTGDtwQ-BZ6BAgBEDw">Don Giovanni</a>
+        </li>
+        <li>
+            <a href="https://www.google.com/search?rlz=1C1ALOY_esAR932AR932&sxsrf=AOaemvJdtFTbxv5vJOl3Umy5H_x3dh6MJg:1636506756173&q=Wolfgang+Amadeus+Mozart+Las+bodas+de+F%C3%ADgaro&stick=H4sIAAAAAAAAAONgFuLQz9U3sDBKSVLiArFMUgySKwu15DPKrfST83NyUpNLMvPzgMzcgvzi1KJiq_yC1KLE4keMPtwCL3_cE5ZynrTm5DVGWy5COoTEuNhc80oySyqFeKS4uODWWjFpMPEsYtUJz89JS0_MS1dwzE1MSS0tVvDNr0osKlHwSSxWSMpPAZIpqQpuh9emJxblT2BjBAA1oC_WugAAAA&sa=X&sqi=2&ved=2ahUKEwidzv7ezoz0AhUVR_EDHaTGDtwQ-BZ6BAgBED8">Las Bodas de Figaro</a>
+        </li>
+    </ul>
+
+}
+
+@section der{
+    
+    <a id="comp1" href="https://es.wikipedia.org/wiki/Franz_Schubert">
+        <img  src="~/img/comp1.jpg" alt="" />
+    </a>
+    <a href="https://es.wikipedia.org/wiki/Johann_Sebastian_Bach">
+        <img src="~/img/comp2.jpg" alt="" />
+    </a>
+    <a href="https://es.wikipedia.org/wiki/%C3%8Dgor_Stravinski">
+        <img src="~/img/comp3.jpg" alt="" />
+    </a>
+    
+}

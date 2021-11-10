@@ -13,6 +13,20 @@ namespace OperaWebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Rutas personalizadas
+            routes.MapRoute(
+                name: "Login",
+                url: "{controller}/{action}/{name}/{role}",
+                defaults: new {controller="Test", action="Login"}
+             );
+
+            routes.MapRoute(
+                name: "SearchByTitle",
+                url: "{controller}/{title}",
+                defaults: new { controller = "Test", action = "SearchByTitle"}
+            );
+
+            //Ruta Default (encima las rutas personalizadas)
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

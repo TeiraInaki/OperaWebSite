@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <banner></banner>
+        <login></login>
+    </header>
+
+    <menu>
+        @Html.ActionLink("Inicio", "Index", "Home")
+        @Html.ActionLink("Opera", "Index", "Opera")
+        @Html.ActionLink("Empleado", "#", "#")
+    </menu>
+
+    <main>
+        <sidebar id="izq">
+            @if (IsSectionDefined("izq"))
+            {
+                @RenderSection("izq")
+            }
+            else
+            {
+                <p><strong>Direccion:</strong></p>
+                <p>Juan B Justo 223</p>
+                <p><strong>Telefono:</strong></p>
+                <p>12781947</p>
+            }
+        </sidebar>
+
+        <content>
+            @RenderBody()
+        </content>
+
+        <sidebar id="der">
+            @if (IsSectionDefined("der"))
+            {
+                @RenderSection("der")
+            }
+            else
+            {
+                <div id="fotos">
+                    <img id="foto1" src="../../img/intcolon1.jpg" alt="Alternate Text" />
+                    <img id="foto2" src="../../img/intcolon2.jpg" alt="Alternate Text" />
+                    <img id="foto3" src="../../img/intcolon3.jpg" alt="Alternate Text" />
+                </div>
+            }
+        </sidebar>
+    </main>
+
+    <footer></footer>
+</body>
+</html>

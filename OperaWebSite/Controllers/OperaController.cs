@@ -7,9 +7,13 @@ using System.Web.Mvc;
 using OperaWebSite.Models;
 using OperaWebSite.Data;
 using System.Data.Entity;
+using System.Diagnostics;
+
+using OperaWebSite.Filters;
 
 namespace OperaWebSite.Controllers
 {
+    [MyFilterAction]
     public class OperaController : Controller
     {
         //Creo instancia del DbContext
@@ -24,7 +28,7 @@ namespace OperaWebSite.Controllers
 
             //El controller retorna una vista "Index" con la lista de operas
             return View("Index", operas);
-        }
+        } 
 
         //Creamos dos métodos para la inserción de la opera en la DB
 
@@ -131,5 +135,31 @@ namespace OperaWebSite.Controllers
             else return View("Edit", opera);
         }
 
+        //FILTROS DE ACCIONES
+
+        ////Filtro de accion - ocurre antes
+        //protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    //Capturo de que controlador me piden la accion
+        //    var controller = filterContext.RouteData.Values["controller"];
+        //    //Capturo que accion me estan pidiendo
+        //    var action = filterContext.RouteData.Values["action"];
+
+
+        //    Debug.WriteLine(controller + " " + action + " Paso por OnActionExecuting");
+        //}
+
+        ////Filtro de accion - ocurre despues
+        //protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        //{
+        //    //Capturo de que controlador me piden la accion
+        //    // Ruta: controller/accion/parametros
+        //    var controller = filterContext.RouteData.Values["controller"];
+        //    //Capturo que accion me estan pidiendo
+        //    var action = filterContext.RouteData.Values["action"];
+
+
+        //    Debug.WriteLine(controller + " " + action + " Paso por OnActionExecuted");
+        //}
     }
 }
